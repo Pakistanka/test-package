@@ -1,7 +1,5 @@
 import { useState } from "react";
 import reactLogo from "./assets/react.svg";
-// import "./App.css";
-// import { Button } from "./components/Button";
 import {StakeBoost} from "./components/StakeBoost";
 
 function App() {
@@ -9,7 +7,6 @@ function App() {
 
   return (
     <div className="App">
-      {/* <Button /> */}
       <StakeBoost
         partner='addr1qywm068rcy5vrgm3r3ejdv3jyvwfs3q3fyzpxj0w3cpg9m8ylar6xm5kqt77uxfpsxlpgm2y2kg6q5w4ddtptl3704pqqwqpmr'
         signer='addr1qywm068rcy5vrgm3r3ejdv3jyvwfs3q3fyzpxj0w3cpg9m8ylar6xm5kqt77uxfpsxlpgm2y2kg6q5w4ddtptl3704pqqwqpmr'
