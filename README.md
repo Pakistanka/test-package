@@ -47,3 +47,10 @@ Structure:
 
 API returns  Leave Loan APR, Loan Fee, Service Fee and other data based on epochs and amount
 
+## How to test
+
+Testing is best done on testnet.
+
+You need to insert the package and then connect the wallet.
+
+If the wallet connects inside and the wallet number is transmitted, then try to borrow
