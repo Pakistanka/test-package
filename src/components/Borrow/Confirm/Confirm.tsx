@@ -2,10 +2,9 @@ import Button from "../../../shared/Button";
 import ButtonTransparent from "../../../shared/Button/transparent";
 import SpinnerXs from "../../../shared/SpinnerXs";
 
-
-
-
 const Confirm = (props: any) => {
+    console.log('props', props)
+
     return (
         <>
             <div className="flex items-center justify-between mt-3 border p-3 rounded-md dark:border-fadedTurqoise border-primary">
@@ -24,12 +23,12 @@ const Confirm = (props: any) => {
                     <div>{props.poolDetails?.feeprotocol ? props.poolDetails?.feeprotocol?.toFixed(0) / 1e6 + ' ADA' : <SpinnerXs />}</div>
                 </div>
             </div>
-            {+props.totalLiquidity < +props.amount && <div className="text-xs font-medium text-red-600 mt-5">
+            {+props.totalLiquidity < +props.poolDetails?.amountUsed && <div className="text-xs font-medium text-red-600 mt-5">
                 Not enough liquidity available
             </div>}
             <div className="flex items-center gap-5 justify-end mt-10 w-full">
                 <ButtonTransparent onClick={() => props.continueAction(false)}>Cancel</ButtonTransparent>
-                <Button disabled={!props.poolDetails?.apr || +props.totalLiquidity < +props.amount} onClick={props.onBorrow}>Confirm</Button>
+                <Button disabled={!props.poolDetails?.apr || +props.totalLiquidity < +props.poolDetails.amountUsed}>Confirm</Button>
             </div>
         </>
     )

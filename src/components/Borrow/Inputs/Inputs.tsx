@@ -78,7 +78,13 @@ const Inputs = (props: any) => {
             {err && <div className="text-xs font-medium text-red-600 mt-5">{err}</div>}
             <div className="flex items-center gap-5 justify-end mt-5 w-full">
                 <ButtonTransparent onClick={() => props.cancel(null)}>Cancel</ButtonTransparent>
-                <Button disabled={!props.amount || !props.epochs || +props.epochs > 24 || +props.epochs < 2 || err} onClick={() => props.continueAction(true)}>Continue</Button>
+                <Button
+                    disabled={!props.amount || !props.epochs || +props.epochs > 24 || +props.epochs < 2 || err}
+                    onClick={() => props.continueAction(true)}
+                    // onClick={props.onBorrow}
+                >
+                    Continue
+                </Button>
             </div>
         </>
     )

@@ -4,7 +4,7 @@ import * as FluidLib from '@/fluid-lib';
 import Inputs from "@/components/LendStake/ui/Inputs/Inputs";
 import Confirm from "@/components/LendStake/ui/Confirm/Confirm";
 import Spinner from "@/shared/Spinner";
-import DepthChart from "@/components/DepthChart";
+// import DepthChart from "@/components/DepthChart";
 import Success from "@/shared/Success/Success";
 import Modal from "@/shared/Modal/Modal";
 
@@ -46,7 +46,7 @@ const EditStakeOffer = (props: any) => {
                         <div className="p-5 flex flex-col h-[95%] w-full overflow-y-auto custom-scroll">
                             {!continueAction ? <div className="flex flex-col">
                             <Inputs epochs={epochs} setEpochs={setEpochs} continueAction={setContinueAction} setAmount={setAmount} amount={amount} apr={apr} setApr={setApr} />
-                                <DepthChart />
+                                {/* <DepthChart /> */}
                             </div> :
                                 <Confirm amount={amount} apr={apr} onLend={onLendEdit} continueAction={setContinueAction} />
                             }

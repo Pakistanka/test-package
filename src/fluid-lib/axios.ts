@@ -1,8 +1,11 @@
 import axios from "axios";
+import process from "process";
 
 const instance = axios.create({
-    baseURL: process.env.NEXT_PUBLIC_FLUID_API,
+    baseURL: import.meta.env.VITE_FLUID_API,
 });
+
+console.log('import.meta.env.NEXT_PUBLIC_FLUID_API', import.meta.env, import.meta.env.VITE_FLUID_API)
 
 instance.interceptors.request.use(
     async (config) => {
@@ -10,7 +13,6 @@ instance.interceptors.request.use(
         return config;
     },
     (err) => {
-        // eslint-disable-next-line no-debugger
         debugger;
         return Promise.reject(err);
     }

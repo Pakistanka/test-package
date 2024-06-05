@@ -11,7 +11,6 @@ const ActionType: FC = (props: any) => {
         <div className="font-bold text-sm uppercase tracking-wider text-base-300">Best yield on Cardano</div>
         <div className="flex items-center gap-5 mt-7">
             <Button onClick={() => props.setActionType('Borrow')}>Borrow stake</Button>
-            <Button onClick={() => props.setActionType('Lend')}> Provide Liquidity</Button>
         </div>
         <div className="mt-4 w-full">
 

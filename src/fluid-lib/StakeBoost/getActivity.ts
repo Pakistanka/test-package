@@ -1,3 +1,4 @@
+//@ts-nocheck
 import { request } from "./../request";
 
 export async function getActivity(page: any, type = 0) {

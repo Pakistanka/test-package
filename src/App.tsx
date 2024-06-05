@@ -10,7 +10,11 @@ function App() {
   return (
     <div className="App">
       {/* <Button /> */}
-      <StakeBoost />
+      <StakeBoost
+        partner='addr1qywm068rcy5vrgm3r3ejdv3jyvwfs3q3fyzpxj0w3cpg9m8ylar6xm5kqt77uxfpsxlpgm2y2kg6q5w4ddtptl3704pqqwqpmr'
+        signer='addr1qywm068rcy5vrgm3r3ejdv3jyvwfs3q3fyzpxj0w3cpg9m8ylar6xm5kqt77uxfpsxlpgm2y2kg6q5w4ddtptl3704pqqwqpmr'
+        borrower='addr1qywm068rcy5vrgm3r3ejdv3jyvwfs3q3fyzpxj0w3cpg9m8ylar6xm5kqt77uxfpsxlpgm2y2kg6q5w4ddtptl3704pqqwqpmr'
+      />
     </div>
   );
 }

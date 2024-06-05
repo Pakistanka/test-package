@@ -1,39 +1,26 @@
-import axios, { AxiosResponse } from "axios";
+//@ts-nocheck
+import axios from "./axios";
 
-interface RequestArgs {
-    [key: string]: string | number | boolean | undefined;
-}
 
-interface RequestOptions {
-    path: string;
-    args?: RequestArgs;
-    body?: any;
-}
-
-interface RequestResponse {
-    data: any;
-}
-
-export async function request({ path, args, body }: RequestOptions): Promise<any> {
+export async function request({ path, args, body }) {
     if (args) {
-        let first = true;
-        for (const [arg, value] of Object.entries(args)) {
-            if (value == undefined) continue;
+        let first = true
+        for (var i = 0; i < Object.keys(args).length; i++) {
+            let arg = Object.keys(args)[i]
+            let value = args[arg]
+            if (value == undefined) continue
 
-            if (first) path += "?";
-            else path += "&";
+            if (first) path += "?"
+            else path += "&"
 
-            first = false;
+            first = false
 
-            path += `${arg}=${value}`;
+            path += `${arg}=${value}`
         }
     }
 
-    const response: AxiosResponse<RequestResponse> = body
-        ? await axios.post(path, body)
-        : await axios.get(path);
+    let response = (body ? await axios.post(path, body) : await axios.get(path))
+    if (response.status != 200) throw new Error(JSON.stringify(response.data))
 
-    if (response.status !== 200) throw new Error(JSON.stringify(response.data));
-
-    return response.data.data ?? response.data;
+    return response.data.data ?? response.data
 }

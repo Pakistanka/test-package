@@ -1,3 +1,4 @@
+//@ts-nocheck
 import { request } from "./../request";
 
 export async function getBorrowedStake(address: any) {

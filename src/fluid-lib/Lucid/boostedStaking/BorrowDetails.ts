@@ -1,27 +1,33 @@
+
 //@ts-nocheck
-import { Lucid, Blockfrost, Data, Constr, Utils, sha256 } from "lucid-cardano";
+// import { Lucid, Blockfrost, Data, Constr, Utils, sha256 } from "lucid-cardano";
 import * as FluidLib from './../../../fluid-lib';
 import { BoostedStakeScript } from "../utils";
 
 
-export const getBorrowDetails = async (amount, epochs, deadline) => {
-    const lucid = await Lucid.new(new Blockfrost(process.env.NEXT_PUBLIC_BLOCKFROST_API, process.env.NEXT_PUBLIC_BLOCKFROST_KEY), process.env.NEXT_PUBLIC_BLOCKFROST_NETWORK);
-    const walletApi = await window.cardano[JSON.parse(localStorage.wallet)?.name].enable();
-    lucid.selectWallet(walletApi);
+export const getBorrowDetails = async (amount: any, epochs: any, deadline: any) => {
+    // const lucid = await Lucid.new(new Blockfrost(process.env.NEXT_PUBLIC_BLOCKFROST_API, process.env.NEXT_PUBLIC_BLOCKFROST_KEY), process.env.NEXT_PUBLIC_BLOCKFROST_NETWORK);
+    // const walletApi = await window.cardano[JSON.parse(localStorage.wallet)?.name].enable();
+    // lucid.selectWallet(walletApi);
 
-    const validatorHash = lucid.utils.validatorToScriptHash(BoostedStakeScript);
+    // const validatorHash = lucid.utils.validatorToScriptHash(BoostedStakeScript);
 
-    const CredentialSC = lucid.utils.scriptHashToCredential(validatorHash);
+    // const CredentialSC = lucid.utils.scriptHashToCredential(validatorHash);
 
     const days = 5 * epochs
     const Realdeadline = days*86400000+Date.now()
-    const address = await lucid.wallet.address()
-    const { paymentCredential, stakeCredential } = lucid.utils.getAddressDetails(address);
+    // const address = await lucid.wallet.address()
+    // const { paymentCredential, stakeCredential } = lucid.utils.getAddressDetails(address);
     const borrowAmount = BigInt(amount) * 1000000n
 
     let pool;
     try {
-        pool = await FluidLib.StakeBoost.getAvailablePools(Number(borrowAmount).toString(), 0, stakeCredential.hash,Realdeadline.toString());
+        pool = await FluidLib.StakeBoost.getAvailablePools(
+            Number(borrowAmount).toString(),
+            0,
+            // stakeCredential.hash,
+            Realdeadline.toString()
+        );
     }
     catch (err) {
         console.log(err);

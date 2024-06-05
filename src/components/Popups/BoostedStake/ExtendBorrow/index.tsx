@@ -6,7 +6,7 @@ import Confirm from "./Confirm";
 import * as FluidLib from '@/fluid-lib';
 import ButtonTransparent from "@/shared/Button/transparent";
 import Button from "@/shared/Button";
-import DepthChart from "@/components/DepthChart";
+// import DepthChart from "@/components/DepthChart";
 import Modal from "@/shared/Modal/Modal";
 import Spinner from "@/shared/Spinner";
 import Success from "@/shared/Success/Success";
@@ -63,7 +63,7 @@ const ExtendBorrow = (props: any) => {
                                     <ButtonTransparent onClick={props.close}>Cancel</ButtonTransparent>
                                     <Button disabled={!epochs || epochs > 15 || epochs < 1} onClick={() => setConfirm(true)}>Continue</Button>
                                 </div>
-                                <DepthChart />
+                                {/* <DepthChart /> */}
                             </div> :
                                 <Confirm poolDetails={poolDetails} amount={props.stakeAmount} epochs={epochs} onBorrow={onBorrow} cancel={() => setConfirm(false)} />
                             }
